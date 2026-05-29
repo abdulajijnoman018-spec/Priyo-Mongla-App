@@ -1,0 +1,11 @@
+{
+  "name": "Priyo Mongla",
+  "description": "A smart city ecosystem and community platform for Mongla, Bangladesh.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

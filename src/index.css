@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Hind Siliguri", sans-serif;
+
+  --color-primary: #0F766E;
+  --color-secondary: #115E59;
+  --color-accent: #F59E0B;
+  --color-background: #F8FAFC;
+  --color-slate-background: #F1F5F9;
+  --color-text: #0F172A;
+  --color-slate-ink: #1E293B;
+
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-4xl: 40px;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-background text-text font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-black tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: rgb(255 255 255 / 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgb(255 255 255 / 0.7);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  }
+
+  .premium-card {
+    @apply bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/40;
+  }
+
+  .label-caps {
+    @apply text-[10px] font-black uppercase text-slate-400 tracking-[0.15em];
+  }
+
+  .neumorphic-button {
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.8);
+    transition: box-shadow 0.2s ease;
+  }
+  .neumorphic-button:active {
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05), inset -2px -2px 5px rgba(255,255,255,0.8);
+  }
+
+  .floating-nav {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 4rem;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    z-index: 50;
+    /* Inline glass-card logic */
+    background-color: rgb(255 255 255 / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full h-12;
+}
+
+/* Animation Utilities */
+.stagger-load > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideUp 0.5s ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
